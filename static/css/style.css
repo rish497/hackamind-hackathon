@@ -708,26 +708,63 @@ button:hover {
   text-align: center;     
 }
 
-#web3{
-  background: #032147;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;    
-  min-height: 100vh;       
-  text-align: center;     
-  padding: 20px; 
-}
 
 #web4{
   background: #c5fc00;
   display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;    
-  min-height: 100vh;       
-  text-align: center;     
-  padding: 20px; 
+  flex-direction: column;
+  justify-content: flex-start; /* vertical alignment: top */
+  align-items: center;        /* horizontal alignment: center */
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 20px;  
+}
+
+#web4 .Crisis{
+  margin-top: 100px;
+  background-color: #ffffff;
+  height: auto;
+  padding: 50px;
+  width: 70%;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: rgb(199, 247, 240) 0px 0px 10px 10px;
+}
+
+#web4 .Crisis .C{
+  background-color: #f74f4f1a;
+  border: red 2px solid;
+  height: auto;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: auto;
+  text-align: left;
+}
+
+#web4 .Crisis .C p{
+  padding-top: 5px;
+}
+
+#web4 .Resources{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  height: auto;
+  width: 70%;
+  border-radius: 10px;
+  text-align: left;
+}
+
+#web4 .Resources .R{
+  margin-top: 30px;
+  background-color: #d8d8d8;
+  height: auto;
+  padding: 50px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: rgb(199, 247, 240) 0px 0px 10px 10px;
 }
 
 #settings{
@@ -806,6 +843,7 @@ button:hover {
   background-color: #ffffff;
   border: #bebebe 2px solid;
   margin: 50px;
+  margin-top: 0px;
   border-radius: 20px;
   font-family: sans-serif;
   height: 50%;
@@ -834,21 +872,23 @@ button:hover {
 }
 
 .breathing-btn, .breathin-btn , .breathi-btn{
-  background-color: #e2f4f7;
+  background-color: #ffffff;
   padding: 10px 30px;
   margin-top: 40px;
   color: black;
   border: #bebebe 2px solid;
   border-radius: 30px;
+  box-shadow: 0px 20px 20px #d6f0f3;
   font-weight: bold;
   font-size: 17px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .breathing-btn:hover, .breathin-btn:hover , .breathi-btn:hover{
   background-color: #c3eff7;
   color: rgb(54, 54, 54);
   cursor: pointer;
+  box-shadow: 0px 40px 20px #d6f0f3;
 }
 
 .breathing-text, .breathin-text, .breathi-text{
@@ -868,4 +908,87 @@ button:hover {
   transition: transform 4s ease-in-out;
 }
 
+#ChatW {
+  background: linear-gradient(135deg, #6a5af9, #00cfff); /* light purple to blue gradient */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  height: 100vh;
+}
 
+/* Gemini Response Box */
+.AWindow {
+  width: 75%;
+  flex: 1;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  overflow-y: auto;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.AWindow h3 {
+  margin-top: 10px;
+  color: #4b00ff;
+  font-size: 30px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+/* User Input Box */
+
+@keyframes bounces{
+  0%   { transform: translateY(0); }
+  10%   { transform: translateY(0); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+.MWindow {
+  animation: bounces 3s linear infinite;
+  width: 75%;
+  display: flex;
+  gap: 10px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.MWindow input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 2px solid #6a5af9;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.MWindow button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #6a5af9, #00cfff);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s all;
+  margin-bottom: 20px;
+}
+
+.MWindow button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Gemini messages */
+#geminiResponse div {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #e0e0ff;
+  color: #1a1a2e;
+}

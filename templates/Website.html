@@ -17,7 +17,7 @@
 <h1>MyStartup</h1>
 <a href="#web1">Dashboard</a>
 <a href="#web2">Service 1</a>
-<a href="#web3">Service 2</a>
+<a href="#ChatW">Service 2</a>
 <a href="#web4">Service 3</a>
 <a href="#settings">Settings</a>
 </div>
@@ -58,6 +58,7 @@
 
 <section id="web2">
   <!--BREATHING-->
+  <h1 style="text-align: center; margin-top: 100px; font-size: 60px; flex-direction: column; ">Breathing Exercises</h1>
   <div class="breathing">
     <h1 style="font-size: 40px;">
       Relaxation Breath
@@ -207,7 +208,7 @@ function stopBreathin(box, circle, text, btn) {
     <button class="breathi-btn" onclick="toggleBreathi(this)">Get Started</button>
   </div>
 
-  <script>
+<script>
 
 function toggleBreathi(btn) {
   let box = btn.closest(".breathi");
@@ -260,13 +261,131 @@ function stopBreathi(box, circle, text, btn) {
 </script>
 </section>
 
-<section id="web3">
+<section id="ChatW">
+ <h1 style="font-size: 80px; color: white;">AI Comforter</h1>
+  
+  <!-- User input box -->
+  <div class="MWindow">
+    <input type="text" id="userMessage" placeholder="Tell the AI Comforter your problems...">
+    <button onclick="sendToGemini()" style="margin-top:20px;">Send</button>
+  </div>
+
+  <!-- Gemini response box -->
+  <div class="AWindow">
+    <svg id="botIcon" xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="black">
+      <path d="M138.67-98.67v-204q0-35.5 24.25-59.75t59.75-24.25h514.66q35.5 0 59.75 24.25t24.25 59.75v204H138.67ZM349.33-440q-86.97 0-148.82-61.85-61.84-61.84-61.84-148.82 0-86.97 61.84-148.82 61.85-61.84 148.82-61.84h261.34q86.97 0 148.82 61.84 61.84 61.85 61.84 148.82 0 86.98-61.84 148.82Q697.64-440 610.67-440H349.33ZM222.67-182.67h514.66v-120H222.67v120ZM349.33-524h261.34q52.77 0 89.72-36.92 36.94-36.92 36.94-89.67 0-52.74-36.94-89.74-36.95-37-89.72-37H349.33q-52.77 0-89.72 36.92-36.94 36.92-36.94 89.67 0 52.74 36.94 89.74 36.95 37 89.72 37Zm.11-86.67q17.23 0 29.73-12.4 12.5-12.41 12.5-29.84 0-17.42-12.47-29.59-12.47-12.17-29.98-12.17-17.24 0-29.39 12.29-12.16 12.28-12.16 29.71 0 17.42 12.27 29.71t29.5 12.29Zm261.33 0q17.23 0 29.73-12.4 12.5-12.41 12.5-29.84 0-17.42-12.47-29.59-12.46-12.17-29.98-12.17-17.23 0-29.39 12.29Q569-670.1 569-652.67q0 17.42 12.27 29.71t29.5 12.29ZM480-182.67Zm0-468Z"/>
+    </svg>
+    
+    <div id="geminiResponse" style="min-height:100px; text-align:left;"></div>
+  </div>
+</section>
+
+<!-- Markdown renderer -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+/* Spin animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#botIcon.spinning {
+  animation: spin 2s linear infinite;
+  transform-origin: center center;
+}
+</style>
+
+<script>
+async function sendToGemini() {
+  const input = document.getElementById('userMessage');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const responseDiv = document.getElementById('geminiResponse');
+  const botIcon = document.getElementById('botIcon');
+
+  // Show "thinking" and start spinning
+  responseDiv.innerHTML = "<em>Thinking...</em>";
+  botIcon.classList.add("spinning");
+
+  try {
+    const res = await fetch("/chat", { 
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: msg })
+    });
+    const data = await res.json();
+
+    // Render Markdown → HTML
+    responseDiv.innerHTML = marked.parse(data.response);
+
+  } catch (err) {
+    responseDiv.innerHTML = "<span style='color:red'>Error connecting to Gemini.</span>";
+    console.error(err);
+  } finally {
+    // Stop spinning after response
+    botIcon.classList.remove("spinning");
+  }
+}
+</script>
+
+<section id="web4">
+<h1>Resources & Support</h1>
+<h2>Essential resources, safety information, and helpful guides for your journey</h2>
+<div class="Crisis">
+  <h2 style="display: flex; align-items: center; gap: 10px; color: red; font-size: 40px;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="Red"><path d="m40-120 440-760 440 760H40Zm115.33-66.67h649.34L480-746.67l-324.67 560ZM482.78-238q14.22 0 23.72-9.62 9.5-9.61 9.5-23.83 0-14.22-9.62-23.72-9.61-9.5-23.83-9.5-14.22 0-23.72 9.62-9.5 9.62-9.5 23.83 0 14.22 9.62 23.72 9.62 9.5 23.83 9.5Zm-33.45-114H516v-216h-66.67v216ZM480-466.67Z"/></svg>
+    Crisis & Emergency Support</h2>
+  <p style="padding:0px;">If you're in crisis or need immediate help, these resources are available 24/7</p>
+    <div class="C">
+    <h2 style="color: red;">Crisis Text Line</h2>
+    <p>24/7 crisis support via text message</p>
+<p style="display: flex; align-items: center; gap: 10px; color: black; font-family:'Courier New', Courier, monospace; font: weight 550;">
+  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="Red">
+    <path d="M796-120q-119 0-240-55.5T333-333Q231-435 175.5-556T120-796q0-18.86 12.57-31.43T164-840h147.33q14 0 24.34 9.83Q346-820.33 349.33-806l26.62 130.43q2.05 14.9-.62 26.24-2.66 11.33-10.82 19.48L265.67-530q24 41.67 52.5 78.5T381-381.33q35 35.66 73.67 65.5Q493.33-286 536-262.67l94.67-96.66q9.66-10.34 23.26-14.5 13.61-4.17 26.74-2.17L806-349.33q14.67 4 24.33 15.53Q840-322.27 840-308v144q0 18.86-12.57 31.43T796-120ZM233-592l76-76.67-21-104.66H187q3 41.66 13.67 86Q211.33-643 233-592Zm365.33 361.33q40.34 18.34 85.84 29.67 45.5 11.33 89.16 13.67V-288l-100-20.33-75 77.66ZM233-592Zm365.33 361.33Z"/>
+  </svg>
+  Text HOME to 741741
+</p>
+</div>
+<div class="C">
+    <h2 style="color: red;">National Suicide Prevention Lifeline</h2>
+    <p>Free, confidential 24/7 crisis counseling</p>
+<p style="display: flex; align-items: center; gap: 10px; color: black; font-family:'Courier New', Courier, monospace; font: weight 550;">
+  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="Red">
+    <path d="M796-120q-119 0-240-55.5T333-333Q231-435 175.5-556T120-796q0-18.86 12.57-31.43T164-840h147.33q14 0 24.34 9.83Q346-820.33 349.33-806l26.62 130.43q2.05 14.9-.62 26.24-2.66 11.33-10.82 19.48L265.67-530q24 41.67 52.5 78.5T381-381.33q35 35.66 73.67 65.5Q493.33-286 536-262.67l94.67-96.66q9.66-10.34 23.26-14.5 13.61-4.17 26.74-2.17L806-349.33q14.67 4 24.33 15.53Q840-322.27 840-308v144q0 18.86-12.57 31.43T796-120ZM233-592l76-76.67-21-104.66H187q3 41.66 13.67 86Q211.33-643 233-592Zm365.33 361.33q40.34 18.34 85.84 29.67 45.5 11.33 89.16 13.67V-288l-100-20.33-75 77.66ZM233-592Zm365.33 361.33Z"/>
+  </svg>
+  988 or 1-800-273-8255
+</p>
+</div>
+
+<div class="C">
+    <h2 style="color: red;">Teen Support Line</h2>
+    <p>24/7 crisis support via text message and Call</p>
+<p style="display: flex; align-items: center; gap: 10px; color: black; font-family:'Courier New', Courier, monospace; font: weight 550;">
+  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="Red">
+    <path d="M796-120q-119 0-240-55.5T333-333Q231-435 175.5-556T120-796q0-18.86 12.57-31.43T164-840h147.33q14 0 24.34 9.83Q346-820.33 349.33-806l26.62 130.43q2.05 14.9-.62 26.24-2.66 11.33-10.82 19.48L265.67-530q24 41.67 52.5 78.5T381-381.33q35 35.66 73.67 65.5Q493.33-286 536-262.67l94.67-96.66q9.66-10.34 23.26-14.5 13.61-4.17 26.74-2.17L806-349.33q14.67 4 24.33 15.53Q840-322.27 840-308v144q0 18.86-12.57 31.43T796-120ZM233-592l76-76.67-21-104.66H187q3 41.66 13.67 86Q211.33-643 233-592Zm365.33 361.33q40.34 18.34 85.84 29.67 45.5 11.33 89.16 13.67V-288l-100-20.33-75 77.66ZM233-592Zm365.33 361.33Z"/>
+  </svg>
+  Call 1-800-668-6868  or Text 686868 
+</p>
+</div>
 
 </section>
 
-
 <section id="web4">
+  <div class="Resources">
+  <div class="R" style="margin-right:50px;">
+      <h1 style="font-size: 40px; display: flex; align-items: center; gap: 10px; ">
+        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="GREEN"><path d="M480-80.67q-139.67-35-229.83-161.5Q160-368.67 160-520.67v-240l320-120 320 120v240q0 152-90.17 278.5Q619.67-115.67 480-80.67Zm0-69.33q111.33-36.33 182.33-139.67 71-103.33 71-231v-193.66L480-809.67l-253.33 95.34v193.66q0 127.67 71 231Q368.67-186.33 480-150Zm0-330Z"/></svg>
+        Safety & Protection</h1>
+    <h2>Online Safety Guide</h2>
+  </div>
 
+    <div class="R">
+      <h1 style="font-size: 30px;">Safety & Protection</h1>
+    <h2>Online Safety Guide</h2>
+  </div>
+</div>
 </section>
 
 <section id="lastpagelogged">
