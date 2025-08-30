@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Landing Page</title>
+</head>
+<body>
+{% if session %}
+
+<div class="topbar">
+<img src="https://images.vexels.com/media/users/3/142789/isolated/preview/2bfb04ad814c4995f0c537c68db5cd0b-multicolor-swirls-circle-logo.png" alt="Logo" style="height:40px; margin-right:15px;">
+<h1>MyStartup</h1>
+<a href="#web1">Dashboard</a>
+<a href="#web2">Service 1</a>
+<a href="#web3">Service 2</a>
+<a href="#web4">Service 3</a>
+<a href="#settings">Settings</a>
+</div>
+
+<section id="web1">
+  <div class="floatboxintro">
+    <div class="TextBox">
+      <h1 style="font-size: 80px;">Welcome {{session.userinfo.name}}! </h1>
+      <button><a href="/logout"  style="text-decoration: none; color: white;"> Logout </a></button>
+    </div>
+  </div>
+</section>
+
+<section id="web21">
+  <h2 style="font-size: 45px; margin-top: 100px;">What would you like to do?</h2>
+  <p style="margin-bottom: 40px; margin-top: 10px; padding: 0px; font-size: 25px;">Choose Your Path</p>
+    <div class="con">
+    <div id="box-1">
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#af96ff"><path d="M432-98.67v-83.66h346.33v-301.45q0-121.68-87.33-207.45Q603.67-777 479.88-777q-123.78 0-210.5 85.72-86.71 85.71-86.71 207.61v253h-35q-36.72 0-62.86-26.14t-26.14-62.86v-80q0-21.66 11-41.16 11-19.5 30-31.84l3-49q8.01-72.35 41.24-134.43 33.23-62.07 83.83-107.65 50.59-45.58 115.26-71.58t137-26q72.33 0 137.15 26.03 64.83 26.04 115.5 71.34 50.68 45.29 83.68 107.29 33 62 42 134l3 47.67q19 11.63 29.5 29.89 10.5 18.26 10.5 39.44v92q0 22.53-10.5 41.1t-29.5 29.24v61q0 35.2-24.25 59.43-24.25 24.23-58.75 24.23H432ZM359.95-385q-17.3 0-29.46-11.84-12.16-11.83-12.16-29.33t12.28-29.66Q342.88-468 360.18-468q17.29 0 29.22 12.28 11.93 12.29 11.93 29.78 0 17.5-11.89 29.22Q377.54-385 359.95-385Zm240.75 0q-17.7 0-29.87-11.84-12.16-11.83-12.16-29.33t12.4-29.66Q583.48-468 600.98-468q17.49 0 29.42 12.28 11.93 12.29 11.93 29.78 0 17.5-11.97 29.22Q618.39-385 600.7-385ZM238-451.33q-12-110 60.55-191.34Q371.09-724 481.65-724q90.68 0 156.52 61.17Q704-601.67 717.67-511 631-512 557-554.83q-74-42.84-118.19-117.5-20.81 77-74.48 134.16Q310.67-481 238-451.33Z"/></svg>
+      <h2>Service 1</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+      <a href="#web2">Get Started</a>
+    </div>
+    <div id="box-2">
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#af96ff"><path d="M153.33-180q-47.66 0-76.83-36.67-29.17-36.66-22.5-90.66L100-632q8.33-61 56.41-104.5Q204.48-780 267.33-780h426q62.21 0 110.35 43.57 48.14 43.58 56.99 104.43L906-307.33q7.33 52.66-22 90Q854.67-180 807.67-180q-25.37 0-46.35-9-20.99-9-34.99-23.67L629.34-308H331.33l-96.66 95.33Q220-198 199.23-189q-20.77 9-45.9 9Zm17.34-88.67L294-392h373l123.31 123.31q4.02 4.02 15.73 8.02 9.96 0 14.79-8.28 4.84-8.28 3.5-18.15l-46.66-332.23q-5.64-33.72-29.45-55.19-23.81-21.48-54-21.48H266.67q-30 0-54.5 21.33-24.5 21.34-28.84 55.34l-46.66 332.37q-2 9.8 3.16 18.05 5.17 8.24 14.84 8.24 6.66 0 16-8ZM697.19-436q18.54 0 32.01-13.33 13.47-13.32 13.47-31.86t-13.33-32.01q-13.33-13.47-31.87-13.47t-32 13.33Q652-500.01 652-481.47t13.33 32Q678.65-436 697.19-436Zm-86-128q18.54 0 32.01-13.33 13.47-13.32 13.47-31.86t-13.33-32.01q-13.33-13.47-31.87-13.47t-32 13.33Q566-628.01 566-609.47t13.33 32Q592.65-564 611.19-564ZM295.33-439.33h64v-73.34h73.34v-64h-73.34V-650h-64v73.33H222v64h73.33v73.34ZM481-478.67Z"/></svg>
+      <h2>Service 2</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+      <a href="#web3">Get Started</a>
+    </div>
+    <div id="box-3">
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#af96ff"><path d="M-.33-119.67V-240q0-39.67 19.02-70.86 19.02-31.18 53.01-47.15 71.97-33.32 136.37-48.99 64.4-15.67 131.93-15.67 67.42 0 131.37 15.67 63.96 15.67 135.96 49 33.42 15.78 53.04 47.02Q680-279.74 680-240v120.33H-.33Zm750.66 0v-125.66q0-55.34-28.66-102Q693-394 640.67-425q71 8 133.5 24.5t106.75 40.13q37.92 21.47 59 51.25Q961-279.33 961-245.33v125.66H750.33Zm-410.66-366q-74.22 0-123.11-48.89t-48.89-122.77q0-73.89 48.89-123.11 48.89-49.23 122.77-49.23 73.89 0 123.11 49.15 49.23 49.15 49.23 122.85 0 74.22-49.15 123.11t-122.85 48.89Zm429.66-172q0 74.22-49.14 123.11t-122.83 48.89q-14.36 0-34.69-2.5-20.34-2.5-34-7.5 26.33-31.6 39.5-72.68 13.16-41.08 13.16-89.12 0-48.04-13.16-87.78Q555-785 528.67-819.67q15.83-4.83 34.33-7.41 18.5-2.59 34.33-2.59 73.7 0 122.85 49.15 49.15 49.15 49.15 122.85Zm-685.66 454H596V-240q0-14.33-6.72-26.12-6.71-11.78-16.95-15.88-67.66-30.33-121.66-43.5-54-13.17-111.17-13.17T228-325.5q-54.33 13.17-121.33 43.5-10.24 4.1-16.62 15.88-6.38 11.79-6.38 26.12v36.33Zm255.84-366q37.49 0 62.82-25.18 25.34-25.18 25.34-62.66 0-37.49-25.46-62.82-25.46-25.34-62.94-25.34-37.49 0-62.55 25.46-25.05 25.46-25.05 62.95 0 37.48 25.18 62.54 25.18 25.05 62.66 25.05Zm.49 366Zm-.33-454Z"/></svg>
+      <h2>Service 3</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+      <a href="#web4">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<section id="web2">
+  <!--BREATHING-->
+  <div class="breathing">
+    <h1 style="font-size: 40px;">
+      Relaxation Breath
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -1080 1160 960" width="40px" fill="black"><path d="M479.5-111.67q-19.56 0-37.7-7.33-18.13-7.33-31.47-21.33L146-405.67q-2.67-2-5-4.66-2.33-2.67-4.33-5.34h117.66l214.34 214.34q2 2.66 4.77 4 2.77 1.33 6.46 1.33 3.7 0 6.5-1.22t5.6-4.11L757.67-468q22.65-23.71 34.66-55.19 12-31.48 12-66.73.67-72.08-45.44-123.91-46.1-51.84-113.76-51.84-31.8 0-60.8 13.5-29 13.5-52.29 37.5l-26.37 29q-5.34 6-11.67 8.84-6.33 2.83-14 2.83t-14.61-2.83q-6.94-2.84-11.06-8.84l-27-29q-22.84-23.87-52.59-37.1Q345-765 314-765q-61.67 0-105 43.33-43.33 43.34-51.67 106H72.67Q81.33-713 149.5-781q68.17-68 164.5-68 45.67 0 88.67 18.17 43 18.16 77.33 50.83 33.33-32.67 75.83-50.83Q598.33-849 645-849q102.33 0 173.17 76Q889-697 889-589.83q0 51.49-18.17 97.99-18.16 46.51-52.5 81.51l-269 270q-14 14-32.14 21.33-18.15 7.33-37.69 7.33Zm-.5-370.66H74V-549h563.53q19.89 0 33.35-13.05 13.45-13.05 13.45-33.17 0-20.11-13.41-33.61-13.42-13.5-33.25-13.5-14 0-26 7.5t-17 20.16l-64.34-17.66q11.67-34.34 41-55.5Q600.67-709 637.67-709q47.22 0 80.27 33.08Q751-642.84 751-595.59q0 47.92-33.06 80.59-33.05 32.67-80.27 32.67H582q5 11.33 7.67 22.73 2.66 11.4 2.66 23.93 0 47.89-33.05 80.61-33.06 32.73-80.28 32.73-37 0-66.33-20.84-29.34-20.83-41-55.83L436-416.67q5 13.34 17 20.5 12 7.17 26 7.17 19.83 0 33.25-13.05 13.42-13.05 13.42-33.17 0-20.11-13.42-33.61T479-482.33Zm2 1.33Z"/></svg>
+    </h1>
+    <div class="circle-container">
+      <img class="breathing-circle" 
+        src="https://png.pngtree.com/png-vector/20240705/ourmid/pngtree-round-circle-with-a-blue-and-white-circle-in-the-middle-vector-png-image_7075990.png" 
+        alt="circle">
+      <p class="breathing-text"></p>
+    </div>
+    <button class="breathing-btn" onclick="toggleBreathing(this)">Get Started</button>
+  </div>
+<script>
+let runningBoxes = new WeakMap();
+let intervals = new WeakMap();
+
+function toggleBreathing(btn) {
+  let box = btn.closest(".breathing");
+  let circle = box.querySelector(".breathing-circle");
+  let text = box.querySelector(".breathing-text");
+
+  if (runningBoxes.get(box)) {
+    stopBreathing(box, circle, text, btn);
+  } else {
+    startBreathing(box, circle, text, btn);
+  }
+}
+
+function startBreathing(box, circle, text, btn) {
+  runningBoxes.set(box, true);
+  btn.innerText = "Stop";
+
+  let steps = [
+    { label: "Breathe In", size: 1.5 },
+    { label: "Hold", size: 1.5 },
+    { label: "Breathe Out", size: 1 },
+    { label: "Hold", size: 1 }
+  ];
+  let times = [4000, 4000, 4000, 4000];
+  let i = 0;
+
+  function doStep() {
+    if (!runningBoxes.get(box)) return;
+    text.innerText = steps[i].label;
+    circle.style.transition = `transform ${times[i]}ms linear`;
+    circle.style.transform = `scale(${steps[i].size})`;
+
+    let t = setTimeout(() => {
+      i = (i + 1) % steps.length;
+      doStep();
+    }, times[i]);
+
+    intervals.set(box, t);
+  }
+
+  doStep();
+}
+
+function stopBreathing(box, circle, text, btn) {
+  runningBoxes.set(box, false);
+  btn.innerText = "Get Started";
+  clearTimeout(intervals.get(box));
+  circle.style.transform = "scale(1)";
+  text.innerText = "";
+}
+</script>
+<!--BREATHIN-->
+
+  <div class="breathin">
+    <h1 style="font-size: 40px;">
+      Deep Sleep Breath 
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -1080 1160 960" width="40px" fill="black"><path d="M484-71.67q-85.03 0-160.21-32.43t-131.22-88.47q-56.04-56.04-88.47-131.22T71.67-484q0-152.36 97.33-266.85 97.33-114.48 248.67-139.82-16 99.34 10.83 195.43t98.83 167.49q71.34 72.06 167.34 98.59t196 9.51q-24.34 151.14-139.32 249.56Q636.37-71.67 484-71.67Zm0-84q90.33 0 165.5-47.83t122.83-125.83q-86-9.67-164.5-44-78.5-34.34-139.83-96-62-61-96.17-139.17-34.16-78.17-43.5-163.5-78 46.33-125.33 122t-47.33 166q0 136.81 95.76 232.57 95.76 95.76 232.57 95.76Zm-16.33-313.66Z"/></svg>
+      </h1>
+    <div class="circle-container">
+      <img class="breathin-circle" 
+        src="https://png.pngtree.com/png-vector/20240705/ourmid/pngtree-round-circle-with-a-blue-and-white-circle-in-the-middle-vector-png-image_7075990.png" 
+        alt="circle">
+      <p class="breathin-text"></p>
+    </div>
+    <button class="breathin-btn" onclick="toggleBreathin(this)">Get Started</button>
+  </div>
+<script>
+function toggleBreathin(btn) {
+  let box = btn.closest(".breathin");
+  let circle = box.querySelector(".breathin-circle");
+  let text = box.querySelector(".breathin-text");
+
+  if (runningBoxes.get(box)) {
+    stopBreathin(box, circle, text, btn);
+  } else {
+    startBreathin(box, circle, text, btn);
+  }
+}
+
+function startBreathin(box, circle, text, btn) {
+  runningBoxes.set(box, true);
+  btn.innerText = "Stop";
+
+  let steps = [
+    { label: "Breathe In", size: 1.5 },
+    { label: "Hold", size: 1.5 },
+    { label: "Breathe Out", size: 1 },
+    { label: "Hold", size: 1 }
+  ];
+  let times = [4000, 7000, 8000, 7000];
+  let i = 0;
+
+  function doStep() {
+    if (!runningBoxes.get(box)) return;
+    text.innerText = steps[i].label;
+    circle.style.transition = `transform ${times[i]}ms linear`;
+    circle.style.transform = `scale(${steps[i].size})`;
+
+    let t = setTimeout(() => {
+      i = (i + 1) % steps.length;
+      doStep();
+    }, times[i]);
+
+    intervals.set(box, t);
+  }
+
+  doStep();
+}
+
+function stopBreathin(box, circle, text, btn) {
+  runningBoxes.set(box, false);
+  btn.innerText = "Get Started";
+  clearTimeout(intervals.get(box));
+  circle.style.transform = "scale(1)";
+  text.innerText = "";
+}
+</script>
+<!--BREATHI-->
+
+  <div class="breathi">
+    <h1 style="font-size: 40px;">
+      Energizing Breath
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -1080 1160 960" width="40px" fill="black"><path d="M416-208.33 650.67-493h-165l30.66-241-211.66 306.33H447l-31 219.34ZM310.33-63.67l40-280H143.67l383-553.33H621l-40 320h248.33L404-63.67h-93.67ZM478-471.33Z"/></svg>
+    </h1>
+    <div class="circle-container">
+      <img class="breathi-circle" 
+        src="https://png.pngtree.com/png-vector/20240705/ourmid/pngtree-round-circle-with-a-blue-and-white-circle-in-the-middle-vector-png-image_7075990.png" 
+        alt="circle">
+      <p class="breathi-text"></p>
+    </div>
+    <button class="breathi-btn" onclick="toggleBreathi(this)">Get Started</button>
+  </div>
+
+  <script>
+
+function toggleBreathi(btn) {
+  let box = btn.closest(".breathi");
+  let circle = box.querySelector(".breathi-circle");
+  let text = box.querySelector(".breathi-text");
+
+  if (runningBoxes.get(box)) {
+    stopBreathi(box, circle, text, btn);
+  } else {
+    startBreathi(box, circle, text, btn);
+  }
+}
+
+function startBreathi(box, circle, text, btn) {
+  runningBoxes.set(box, true);
+  btn.innerText = "Stop";
+
+  let steps = [
+    { label: "Breathe In", size: 1.5 },
+    { label: "Hold", size: 1.5 },
+    { label: "Breathe Out", size: 1 },
+    { label: "Hold", size: 1 }
+  ];
+  let times = [2000, 4000, 6000, 4000];
+  let i = 0;
+
+  function doStep() {
+    if (!runningBoxes.get(box)) return;
+    text.innerText = steps[i].label;
+    circle.style.transition = `transform ${times[i]}ms linear`;
+    circle.style.transform = `scale(${steps[i].size})`;
+    let t = setTimeout(() => {
+      i = (i + 1) % steps.length;
+      doStep();
+    }, times[i]);
+
+    intervals.set(box, t);
+  }
+
+  doStep();
+}
+
+function stopBreathi(box, circle, text, btn) {
+  runningBoxes.set(box, false);
+  btn.innerText = "Get Started";
+  clearTimeout(intervals.get(box));
+  circle.style.transform = "scale(1)";
+  text.innerText = "";
+}
+</script>
+</section>
+
+<section id="web3">
+
+</section>
+
+
+<section id="web4">
+
+</section>
+
+<section id="lastpagelogged">
+  <div class="containers">
+        <div class="lol lol-1">
+          <a href="#intro" style="cursor:pointer; text-decoration: none; color: black; font-size:30px"><h2>Start Today For Fun</h2></a>
+          <div>
+            <p>One Platform. All You Need.</p>
+          </div>
+        </div>
+        <div class="lol lol-2">
+          <img src="https://images.vexels.com/media/users/3/142789/isolated/preview/2bfb04ad814c4995f0c537c68db5cd0b-multicolor-swirls-circle-logo.png" alt="Logo" style="height:40px; margin-right:15px;">
+          <h2 style="font-size: 30px;">MyStartup</h2>
+        </div>
+        <div class="lol lol-3">
+          <h2>Features</h2>
+          <p>Feature 1</p>
+          <p>Feature 2</p>
+          <p>Feature 3</p>
+          <p>Feature 4</p>
+          <P>Feature 5</P>
+          <p>Feature 6</p>
+          <P>Feature 7</P>
+        </div>
+        <div class="lol lol-4">
+          <h2>Resources</h2>
+          <p><a href="#web1">Web1</a></p>
+          <p><a href="#web2">Web2</a></p>
+          <p><a href="#web3">Web3</a></p>
+          <p><a href="#settings">Settings</a></p>
+        </div>
+        <div class="lol lol-5">
+          <h2>Legal</h2>
+          <p><a>Privacy Policy</a></p>
+          <p><a>Terms Of Use</a></p>
+
+        </div>
+  </div>
+</section>
+
+{% else %}
+<div class="bottombar">
+<a>This is a Startup!</a>
+<button><a href="/login">Get started for Free!</a></button>
+<a style="color:#b1b0b0">For Windows and macOS</a>
+</div>
+
+<div class="topbar">
+<img src="https://images.vexels.com/media/users/3/142789/isolated/preview/2bfb04ad814c4995f0c537c68db5cd0b-multicolor-swirls-circle-logo.png" alt="Logo" style="height:40px; margin-right:15px;">
+<h1>MyStartup</h1>
+<a href="#intro">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">FAQ</a>
+</div>
+
+<section id="intro">
+
+    <h1 style="color: white;">Welcome to <span style="color:rgb(0, 238, 255)">MyStartup</span></h1>
+    <p style="color: white;">
+      We build amazing products that transform your business and simplify your life. This is a dsjdnkdanf hjsdafbhjasdf
+    </p>
+    <button><a href="/login"  style="text-decoration: none; color: white;"> Get Started For Free </a></button>
+</section>
+
+<section id="intro2">
+  <h2>Reviewed and Trusted By:</h2>
+  <div class="wrapper">
+    <div class="item item1" >
+      <img src="https://img.freepik.com/free-vector/hand-drawn-anime-logo-design_23-2151269668.jpg">
+      <h4>User 1 ✪</h4>
+      <h4>100K Subscribers</h4>
+    </div>
+    <div class="item item2">
+      <img src="https://i.pinimg.com/236x/20/3b/b8/203bb868641a99c83c79f8baacff54d1.jpg">
+      <h4>User 2 ✪</h4>
+      <h4>450K Subscribers</h4>
+    </div >
+    <div class="item item3">
+      <img src="https://mystickermania.com/cdn/stickers/youtubers/gamingwithkev-logo.png">
+      <h4>User 3 ✪</h4>
+      <h4>830K Subscribers</h4>
+    </div>
+    <div class="item item4">
+      <img src="https://bcassetcdn.com/public/blog/wp-content/uploads/2021/12/08165259/Dude-Perfect.jpg">
+      <h4>User 4 ✪</h4>
+      <h4>200K Subscribers</h4>
+    </div>
+    <div class="item item5">
+      <img src="https://images-platform.99static.com//mqanMbdGlKQJLDgZhjlMg4LoJPo=/0x0:960x961/fit-in/500x500/99designs-contests-attachments/122/122171/attachment_122171562">
+      <h4>User 5 ✪</h4>
+      <h4>340K Subscribers</h4>
+    </div>
+    <div class="item item6">
+      <img src="https://www.jetpunk.com/img/user-img/84/844437ab2a-450.webp">
+      <h4>User 6 ✪</h4>
+      <h4>300K Subscribers</h4>
+    </div>
+    <div class="item item7">
+      <img src="https://hypixel.net/attachments/1605874/">
+      <h4>User 7 ✪</h4>
+      <h4>600K Subscribers</h4>
+    </div>
+    <div class="item item8">
+      <img src="https://i.pinimg.com/564x/c0/f7/2c/c0f72cb3e7cb010865add6f7c37c7dc2.jpg">
+      <h4>User 8 ✪</h4>
+      <h4>120K Subscribers</h4>
+    </div>
+  </div>
+
+  <div class="wrapper2">
+    <div class="items item1" >
+      <img src="https://www.nicepng.com/png/detail/357-3570276_faze-logo-youtube-vloggers-youtubers-rugrats-symbols-faze.png">
+      <h4>User 9 ✪</h4>
+      <h4>92K Subscribers</h4>
+    </div>
+    <div class="items item2">
+      <img src="https://www.seekpng.com/png/detail/1012-10121514_hello-its-anything-you-want-as-you-know.png">
+      <h4>User 18 ✪</h4>
+      <h4>838K Subscribers</h4>
+    </div >
+    <div class="items item3">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYrDqxDnRZJexJ3qAwtjoEKCu2nVRCnXB8mw&s">
+      <h4>User 11 ✪</h4>
+      <h4>230K Subscribers</h4>
+    </div>
+    <div class="items item4">
+      <img src="https://preview.redd.it/theres-a-youtube-channel-that-has-a-logo-and-i-wanted-to-do-v0-7l960xq7td8b1.jpg?width=640&crop=smart&auto=webp&s=3df99ede5a93082b96af8e52adaf4c4cbab76b19">
+      <h4>User 12 ✪</h4>
+      <h4>1.4M Subscribers</h4>
+    </div>
+    <div class="items item5">
+      <img src="https://thumbs.dreamstime.com/b/lion-mascot-esport-logo-design-illustrations-vector-template-green-team-game-streamer-youtuber-banner-twitch-discord-211260890.jpg">
+      <h4>User 13 ✪</h4>
+      <h4>830K Subscribers</h4>
+    </div>
+    <div class="items item6">
+      <img src="https://www.jetpunk.com/img/user-img/7c/7c62e083fb-450.webp">
+      <h4>User 14 ✪</h4>
+      <h4>820K Subscribers</h4>
+    </div>
+    <div class="items item7">
+      <img src="https://tiermaker.com/images/chart/chart/youtuber-logos-43320/1564001335599jpg.png">
+      <h4>User 15 ✪</h4>
+      <h4>930K Subscribers</h4>
+    </div>
+    <div class="items item8">
+      <img src="https://tiermaker.com/images/chart/chart/youtuber-logos-43320/1564001415713jpg.png">
+      <h4>User 16 ✪</h4>
+      <h4>310K Subscribers</h4>
+    </div>
+  </div>
+</section>
+
+
+<section id="about">
+<div class="box">
+  <div class="innerbox">
+    <h1>About This</h1>
+    <p>We are a team of passionate developers, designers, and thinkers committed to creating innovative solutions for the modern world.</p>
+  </div>
+
+     <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Team Image">
+
+</div>
+
+<div class="box2">
+  <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Team Image">
+  <div class="innerbox">
+    <h1>About This</h1>
+    <p>We are a team of passionate developers, designers, and thinkers committed to creating innovative solutions for the modern world.</p>
+  </div>
+</div>
+</section>
+
+
+
+<section id="services">
+  <div class="container">
+    <div id="box-1">
+      <h2>Service 1</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+    </div>
+    <div id="box-2">
+      <h2>Service 2</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+    </div>
+    <div id="box-3">
+      <h2>Service 3</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+    </div>
+    <div id="box-4">
+      <h2>service 4</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+    </div>
+    <div id="box-5">
+      <h2>service 5</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+    </div>
+    <div id="box-6">
+      <h2>service 6</h2>
+      <p>Blah Blah Blah, I help you with this and that. I am amazing as you already know!</p>
+    </div>
+</div>
+</section>
+
+<section id="contact">
+  <div class="cboxl">
+    <h2>Frequently Asked Questions</h2>
+    <p>Have a question that needs a human to answer? No problem.</p>
+    <p><a href="mailto: support.team@gmail.com" style="color: rgb(0, 38, 255); text-decoration: none;">Speak to our support team now ➔ </a></p>
+  </div>
+  <div class="answerbox">
+      <details class="QA">
+        <summary>What services do you offer?</summary>
+        <p>We offer a range of services including web development, mobile app development, and digital marketing.</p>
+      </details>
+
+      <details class="QA">
+        <summary>What services do you offer?</summary>
+        <p>We offer a range of services including web development, mobile app development, and digital marketing.</p>
+      </details>
+
+      <details class="QA">
+        <summary>What services do you offer?</summary>
+        <p>We offer a range of services including web development, mobile app development, and digital marketing.</p>
+      </details>
+
+      <details class="QA">
+        <summary>What services do you offer?</summary>
+        <p>We offer a range of services including web development, mobile app development, and digital marketing.</p>
+      </details>
+      
+      <details class="QA">
+        <summary>What services do you offer?</summary>
+        <p>We offer a range of services including web development, mobile app development, and digital marketing.</p>
+      </details>
+
+      <details class="QA">
+        <summary>What services do you offer?</summary>
+        <p>We offer a range of services including web development, mobile app development, and digital marketing.</p>
+      </details>
+
+      <details class="QA">
+        <summary>What services do you offer?</summary>
+        <p>We offer a range of services including web development, mobile app development, and digital marketing.</p>
+      </details>
+  </div>
+</section>
+<script>
+  const details = document.querySelectorAll('.QA');
+  details.forEach((detail) => {
+    detail.addEventListener('click', () => {
+      details.forEach((other) => {
+        if (other !== detail) {
+          other.removeAttribute('open');
+        }
+      });
+    });
+  });
+</script>
+<section id="lastpage">
+  <div class="containers">
+        <div class="lol lol-1">
+          <a href="#intro" style="cursor:pointer; text-decoration: none; color: black; font-size:30px"><h2>Start Today For Fun</h2></a>
+          <div>
+            <p>One Platform. All You Need.</p>
+          </div>
+        </div>
+        <div class="lol lol-2">
+          <img src="https://images.vexels.com/media/users/3/142789/isolated/preview/2bfb04ad814c4995f0c537c68db5cd0b-multicolor-swirls-circle-logo.png" alt="Logo" style="height:40px; margin-right:15px;">
+          <h2 style="font-size: 30px;">MyStartup</h2>
+        </div>
+        <div class="lol lol-3">
+          <h2 style="font-size: 30px;">Features</h2>
+          <p>Feature 1</p>
+          <p>Feature 2</p>
+          <p>Feature 3</p>
+          <p>Feature 4</p>
+          <P>Feature 5</P>
+          <p>Feature 6</p>
+        </div>
+        <div class="lol lol-4">
+          <h2 style="font-size: 30px;">Resources</h2>
+          <p><a href="#intro">Home</a></p>
+          <p><a href="#about">About</a></p>
+          <p><a href="#services">Services</a></p>
+          <p><a href="#contact">FAQ</a></p>
+        </div>
+        <div class="lol lol-5">
+          <h2 style="font-size: 30px;">Legal</h2>
+          <p><a>Privacy Policy</a></p>
+          <p><a>Terms Of Use</a></p>
+
+        </div>
+  </div>
+</section>
+{% endif %}
+</body>
+</html>
