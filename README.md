@@ -37,4 +37,4 @@ NeuroNest is an interactive web platform designed to support mental health and w
 ---
 
 ## Setup & Installation
-- TO run file run the code: python server.py in the terminal
+- To run file run the code: python server.py in the terminal
