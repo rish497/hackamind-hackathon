@@ -5,7 +5,6 @@ from dotenv import load_dotenv, find_dotenv
 from urllib.parse import quote_plus, urlencode
 import os
 import json
-import openai
 import requests
 import google.generativeai as genai
 
