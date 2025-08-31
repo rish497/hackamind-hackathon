@@ -710,18 +710,18 @@ button:hover {
 
 
 #web4{
-  background: #c5fc00;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* vertical alignment: top */
-  align-items: center;        /* horizontal alignment: center */
-  min-height: 100vh;
+  justify-content: flex-start; 
+  align-items: center;       
+  height: auto;
   text-align: center;
-  padding-top: 20px;  
+  padding-top: 50px;
+  padding-bottom: 50px;  
 }
 
 #web4 .Crisis{
-  margin-top: 100px;
+  margin-top: 60px;
   background-color: #ffffff;
   height: auto;
   padding: 50px;
@@ -733,7 +733,7 @@ button:hover {
 
 #web4 .Crisis .C{
   background-color: #f74f4f1a;
-  border: red 2px solid;
+  border: rgba(255, 0, 0, 0.418) 2px solid;
   height: auto;
   padding: 25px;
   margin-top: 20px;
@@ -757,8 +757,8 @@ button:hover {
 }
 
 #web4 .Resources .R{
-  margin-top: 30px;
-  background-color: #d8d8d8;
+  margin-top: -60px;
+  background-color: #ffffff;
   height: auto;
   padding: 50px;
   width: 100%;
@@ -766,16 +766,40 @@ button:hover {
   text-align: left;
   box-shadow: rgb(199, 247, 240) 0px 0px 10px 10px;
 }
+#web4 .Resources .R .rr{
+  margin-top: 20px;
+  background-color: rgba(3, 245, 3, 0.178);
+  border: rgba(3, 110, 3, 0.452) 2px solid;
+  height: auto;
+  padding: 20px;
+  width: 100%;
+  border-radius: 20px;
+  text-align: left;
+}
 
-#settings{
-  background: #ea00ff;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;    
-  min-height: 100vh;       
-  text-align: center;     
-  padding: 20px; 
+#web4 .Resources .R .ar{
+  margin-top: 20px;
+  background-color: rgba(108, 3, 245, 0.178);
+  border: rgba(62, 3, 110, 0.452) 2px solid;
+  height: auto;
+  padding: 20px;
+  width: 100%;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.icon-link {
+  display: inline-flex;         
+  align-items: center;          
+  gap: 8px;                     
+  text-decoration: none;        
+  color: green;                 
+  font-weight: bold;
+  transition: font-size 0.3s ease;            
+}
+
+.icon-link:hover{
+  font-size: 20px;
 }
 
 .con{
