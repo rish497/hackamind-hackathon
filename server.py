@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, url_for, session, request, jsonify
-from supabase import create_client
 from authlib.integrations.flask_client import OAuth
 from dotenv import load_dotenv, find_dotenv
 from urllib.parse import quote_plus, urlencode
