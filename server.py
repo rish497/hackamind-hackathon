@@ -35,8 +35,6 @@ auth0 = oauth.register(
     server_metadata_url=f'https://{os.getenv("AUTH0_DOMAIN")}/.well-known/openid-configuration'
 )
 
-# ----------------- Supabase Setup -----------------
-supabase = create_client(os.getenv('SUPABASE_URL'), os.getenv('SUPABASE_KEY'))
 
 # ----------------- Routes -----------------
 @app.route("/login")
