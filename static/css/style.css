@@ -939,7 +939,7 @@ button:hover {
 }
 
 #ChatW {
-  background: linear-gradient(135deg, #6a5af9, #00cfff); /* light purple to blue gradient */
+  background: linear-gradient(135deg, #6a5af9, #00cfff);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
